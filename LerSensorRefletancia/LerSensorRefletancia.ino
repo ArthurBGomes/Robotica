@@ -34,16 +34,16 @@ void loop(){
 	Serial.println(valorSensorDir);       //Imprime o valor do sensor pela porta serial
 
 	//Impressão dos valores dos sensores
-	if (valorSensorEsq > 70 && valorSensorDir > 70) {
-		robo.acionarMotores(70, 90);
+	if (valorSensorEsq > 50 && valorSensorDir > 0.7) {
+		robo.acionarMotores(0, 0);
 		delay(500);
 	}
-	else if (valorSensorEsq > 70 && valorSensorDir <= 70) {
-		robo.acionarMotores(-60, 60);
+	else if (valorSensorEsq > 50 && valorSensorDir <= 0.7) {
+		robo.acionarMotores(0, 0);
 		delay(500);
 	}
-	else if(valorSensorEsq <= 70 && valorSensorDir > 70) {
-		robo.acionarMotores(60, -60);
+	else if(valorSensorEsq <= 50 && valorSensorDir > 1) {
+		robo.acionarMotores(0,0);
 		delay(500);
 	}
 	else {
