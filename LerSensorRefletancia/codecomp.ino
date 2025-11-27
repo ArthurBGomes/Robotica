@@ -12,7 +12,7 @@ float valorSensorMaisEsq;
 float valorSensorEsq;
 float valorSensorDir;
 float valorSensorMaisDir;
-
+#define DIVISOR 70
 void setup(){
 	Serial.begin(9600);
 	robo.configurar();
@@ -31,39 +31,39 @@ void loop(){
 	Serial.print("; Maisdir: ");
 	Serial.println(valorSensorMaisDir); 
 	//Impressão dos valores dos sensores
-	if (valorSensorMaisEsq > 50 && valorSensorEsq > 50 && valorSensorDir > 0.7 &&  valorSensorMaisDir > 50) {//todos pegando branco
-		robo.acionarMotores(70, 70);//frente
-		delay(500);
+	if (valorSensorMaisEsq > DIVISOR && valorSensorEsq > DIVISOR && valorSensorDir > DIVISOR &&  valorSensorMaisDir > DIVISOR) {//todos pegando branco
+		robo.acionarMotores(60, 60);//frente
+		delay(300);
 	}
-	else if (valorSensorMaisEsq > 50 && valorSensorEsq <= 50 &&  valorSensorDir <= 0.7  && valorSensorMaisDir > 50) {//só os mais pegando branco
-		robo.acionarMotores(70, 70);//frente
-		delay(500);
+	else if (valorSensorMaisEsq > DIVISOR && valorSensorEsq <= DIVISOR &&  valorSensorDir <= DIVISOR  && valorSensorMaisDir > DIVISOR) {//só os mais pegando branco
+		robo.acionarMotores(60, 60);//frente
+		delay(300);
 	}
-  	else if ( valorSensorMaisEsq <= 50 && valorSensorEsq <= 50 && valorSensorDir <= 0.7 && valorSensorMaisDir > 50) {//só o mais direito pegando branco
-		robo.acionarMotores(-70, 70);//esquerda
-		delay(500);
-	} else if (valorSensorMaisEsq <= 50 && valorSensorEsq <= 50  &&  valorSensorDir  > 0.7  && valorSensorMaisDir > 50) {//só os direitos pegando branco
-		robo.acionarMotores(-70, 70);//esquerda
-		delay(500);
-	} else if (valorSensorMaisEsq > 50 && valorSensorEsq <= 50 && valorSensorDir <= 0.7 &&  valorSensorMaisDir <= 50) { //só o mais esquerdo pegando branco
-		robo.acionarMotores(70, -70);//direita
-		delay(500);
+  	else if ( valorSensorMaisEsq <= DIVISOR && valorSensorEsq <= DIVISOR && valorSensorDir <= DIVISOR && valorSensorMaisDir > DIVISOR) {//só o mais direito pegando branco
+		robo.acionarMotores(-60, 60);//esquerda
+		delay(300);
+	} else if (valorSensorMaisEsq <= DIVISOR && valorSensorEsq <= DIVISOR  &&  valorSensorDir  > DIVISOR  && valorSensorMaisDir > DIVISOR) {//só os direitos pegando branco
+		robo.acionarMotores(-60, 60);//esquerda
+		delay(300);
+	} else if (valorSensorMaisEsq > DIVISOR && valorSensorEsq <= DIVISOR && valorSensorDir <= DIVISOR &&  valorSensorMaisDir <= DIVISOR) { //só o mais esquerdo pegando branco
+		robo.acionarMotores(60, -60);//direita
+		delay(300);
 	}
-  	else if (valorSensorMaisEsq > 50 && valorSensorEsq > 50 && valorSensorDir <= 0.7 &&  valorSensorMaisDir <= 50) {// só os esquerdos pegando branco
-		robo.acionarMotores(70, -70);//direita
-		delay(500);
+  	else if (valorSensorMaisEsq > DIVISOR && valorSensorEsq > DIVISOR && valorSensorDir <= DIVISOR &&  valorSensorMaisDir <= DIVISOR) {// só os esquerdos pegando branco
+		robo.acionarMotores(60, -60);//direita
+		delay(300);
 	}
-  	else if (valorSensorMaisEsq > 50 && valorSensorEsq > 50 && valorSensorDir > 0.7 &&  valorSensorMaisDir <= 50) {// só o mais direio pegando preto
-		robo.acionarMotores(70, -70);//direita
-		delay(500);
+  	else if (valorSensorMaisEsq > DIVISOR && valorSensorEsq > DIVISOR && valorSensorDir > DIVISOR &&  valorSensorMaisDir <= DIVISOR) {// só o mais direio pegando preto
+		robo.acionarMotores(60, -60);//direita
+		delay(300);
 	}
-  	else if (valorSensorMaisEsq <= 50 && valorSensorEsq <= 50 && valorSensorDir <= 0.7 &&  valorSensorMaisDir > 50) {// só o mais direito pegando branco
-		robo.acionarMotores(-70, 70);//esquerda
-		delay(500);
+  	else if (valorSensorMaisEsq <= DIVISOR && valorSensorEsq <= DIVISOR && valorSensorDir <= DIVISOR &&  valorSensorMaisDir > DIVISOR) {// só o mais direito pegando branco
+		robo.acionarMotores(-60, 60);//esquerda
+		delay(300);
 	}
 	else {
 		robo.acionarMotores(0,0);//parar
-		delay(500);
+		delay(300);
 	}
 
 	delay(1000);
